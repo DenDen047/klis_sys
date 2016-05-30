@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'tops#index'
+
   get 'tweets/index'
   get 'tweets/show'
   get 'tweets/new'
