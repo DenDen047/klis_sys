@@ -1,16 +1,15 @@
 <h1>とっぷぺーじ</h1>
 
-<style type="text/css">
-iframe {
-  width: 600px;
-  scrolling: auto;
-}
-iframe.tweet_flat {height:100px}
-iframe.tl_flat {height:700px}
-</style>
+<!-- Tweet Box -->
+<%= form_for Tweet.new do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
 
-<ul>
-<iframe class="tweet_flat" src="/tweets/new"></iframe></br>
-<iframe class="tl_flat" src="/tweets/index"></iframe>
-</ul>
+<!-- Time Line -->
+<% @tweets.reverse_each do |tweet| %>
+  <h1><%= tweet.title %></h1>
+  <p><%= tweet.content %></p>
+<% end %>
 
