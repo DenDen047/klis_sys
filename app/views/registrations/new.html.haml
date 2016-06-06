@@ -5,6 +5,9 @@
       klisの実習のために作成中
     %p.by
       デザイン: @keito0904
+    - if notice
+      %p
+        .alert.alert-info= notice
   .col-xs-6.right-content
     = form_for @user, url: registrations_path, method: :post do |f|
       %h2
