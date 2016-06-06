@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
   def new
     @user = User.new
+    redirect_to tweets_url if logged_in?
   end
   
   def create
@@ -8,7 +9,7 @@ class RegistrationsController < ApplicationController
     
     if @user.save
       login(@user.email, @user.password)
-      redirect_to root_url
+      redirect_to tweets_url
     else
       render :new
     end
