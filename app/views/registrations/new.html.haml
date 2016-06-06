@@ -1,5 +1,5 @@
 #registrations-new
-  .col-xs-6.left-content
+  .col-xs-6.right-content
     %h1 レポートはいかがでしょうか？
     %p.ex
       レポートご注文ですか
@@ -8,7 +8,7 @@
     - if notice
       %p
         .alert.alert-info= notice
-  .col-xs-6.right-content
+  .col-xs-6.left-content
     = form_for @user, url: registrations_path, method: :post do |f|
       %h2
         会員登録する
