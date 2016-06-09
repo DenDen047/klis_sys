@@ -1,14 +1,14 @@
 #registrations-new
-  .col-xs-6.left-content
-    %h1 #目指せフル単
+  .col-xs-6.right-content
+    %h1 レポートはいかがでしょうか？
     %p.ex
-      klisの実習のために作成中
+      レポートご注文ですか
     %p.by
-      デザイン: @DenDen047
+      デザイン: @keito0904
     - if notice
       %p
         .alert.alert-info= notice
-  .col-xs-6.right-content
+  .col-xs-6.left-content
     = form_for @user, url: registrations_path, method: :post do |f|
       %h2
         会員登録する
