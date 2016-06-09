@@ -6,15 +6,15 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.build(tweet: @tweet)
     
     if @favorite.save
-      redirect_to tweets_url, notice: "お気に入りに登録!!"
+      redirect_to request.referer, notice: "お気に入りに登録!!"
     else
-      redirect_to tweets_url, alert: "このツイートはお気に入りに登録できません( >  < )"
+      redirect_to request.referer, alert: "このツイートはお気に入りに登録できません( >  < )"
     end
   end
   
   def destroy
     @favorite = current_user.favorites.find_by!(tweet_id: params[:tweet_id])
     @favorite.destroy
-    redirect_to tweets_url, notice: "お気に入りを解除!!"
+    redirect_to request.referer, notice: "お気に入りを解除!!"
   end
 end
