@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606090349) do
+ActiveRecord::Schema.define(version: 20160612031936) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20160606090349) do
 
   add_index "follows", ["follower_id"], name: "index_follows_on_follower_id"
   add_index "follows", ["inverse_follower_id"], name: "index_follows_on_inverse_follower_id"
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "name"
+    t.date     "timelimit"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reports", ["description"], name: "index_reports_on_description"
+  add_index "reports", ["name"], name: "index_reports_on_name"
+  add_index "reports", ["timelimit"], name: "index_reports_on_timelimit"
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "user_id"
