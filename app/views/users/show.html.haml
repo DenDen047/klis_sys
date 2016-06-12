@@ -4,5 +4,5 @@
   .list-group
     - if @user.tweets.empty?
       .list-group-item
-        ツブヤキがありません。Let's Tweet!
+        Let's Tweet!
     = render partial: "users/tweet", collection: @user.tweets

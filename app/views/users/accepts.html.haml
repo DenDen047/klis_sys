@@ -1,0 +1,7 @@
+.col-xs-8#users-content
+  = render partial: "users/header"
+  .list-group
+    - if @user.accepts.empty?
+      .list-group-item
+        着手中の課題はありません
+    = render partial: "users/report", collection: @user.accepts.map{|f| f.report}

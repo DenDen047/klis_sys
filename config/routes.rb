@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resource :follows, only: [:create, :destroy]
     get :favorites, on: :member
+    get :accepts, on: :member
     get :follows, on: :member
     get :followers, on: :member
   end
@@ -16,7 +17,9 @@ Rails.application.routes.draw do
     get :timeline, on: :collection
   end
 
-  resources :reports
+  resources :reports do
+    resource :accepts, only: [:create, :destroy]
+  end
   
   root to: 'registrations#new'
 

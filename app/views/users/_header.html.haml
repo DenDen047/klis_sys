@@ -33,9 +33,9 @@
         お気に入り
       .num
         #{@user.favorites.count}
-  // %li{class: action_name == "accepts" ? "active" : nil}
-  //   = link_to accepts_user_path(@user) do
-  //     .text
-  //       課題
-  //     .num
-  //       #{@user.accepts.count}
+  %li{class: action_name == "accepts" ? "active" : nil}
+    = link_to accepts_user_path(@user) do
+      .text
+        課題
+      .num
+        #{@user.accepts.count}

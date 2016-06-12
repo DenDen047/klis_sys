@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   
   has_many :tweets, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :accepts, dependent: :destroy
   
   has_many :follows, foreign_key: :follower_id
   has_many :inverse_followers, through: :follows

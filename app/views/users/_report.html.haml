@@ -1,0 +1,17 @@
+= div_for report, class: "list-group-item" do |t|
+  %h4.user
+    %span.user-name
+      = link_to t.name, report_path(t)
+    %span.user-id
+      締切日 #{t.timelimit}
+    %span.time.pull-right
+      = distance_of_time_in_words_to_now(t.created_at)
+    .clear
+  .tweet-content
+    %p
+      = t.description
+    .content-footer
+      - if t.accepted_by? current_user
+        = link_to "課題終了", report_accepts_path(t), method: :delete
+      - else
+        = link_to "この課題に着手", report_accepts_path(t), method: :post

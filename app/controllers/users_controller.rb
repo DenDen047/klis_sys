@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
   end
+  
+  def accepts
+    @user = User.find(params[:id])
+  end
 
   # GET /users/new
   def new
