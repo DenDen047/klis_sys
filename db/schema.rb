@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612045143) do
+ActiveRecord::Schema.define(version: 20160612121358) do
 
   create_table "accepts", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20160612045143) do
   add_index "accepts", ["created_at"], name: "index_accepts_on_created_at"
   add_index "accepts", ["report_id"], name: "index_accepts_on_report_id"
   add_index "accepts", ["user_id"], name: "index_accepts_on_user_id"
+
+  create_table "bibliographies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bibliographies", ["name"], name: "index_bibliographies_on_name"
+  add_index "bibliographies", ["report_id"], name: "index_bibliographies_on_report_id"
+  add_index "bibliographies", ["url"], name: "index_bibliographies_on_url"
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"

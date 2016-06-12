@@ -4,6 +4,7 @@
   .list-group
     .list-group-item.report-list
       %h2 課題一覧
+    = button_to 'New', new_report_path(@report), method: :get, class: "btn-block btn-success"
     = div_for @reports, class: "list-group-item" do |r|
       %h4.report
         %span.report-name

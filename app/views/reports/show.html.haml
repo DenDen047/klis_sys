@@ -10,3 +10,25 @@
           = @report.description
         = button_to 'Edit', edit_report_path(@report), method: :get, class: "btn-block btn-success"
         = button_to 'Back', reports_path, method: :get, class: "btn-block btn-success"
+  .col-xs-6.reports-content
+    .box
+      %h2
+        参考文献
+      .box-body
+        .panel.panel-default
+          .panel-body
+            // - @report.bibliographies.errors.full_messages.each do |message|
+            //   .alert.alert-danger= message
+            = form_for @report.bibliographies do |f|
+              .form-group
+                = f.text :name, class: "form-control"
+                = f.text :url, class: "form-control"
+              = f.submit "追加", class: "btn btn-success"
+        // = render partial: "bibliographies/panel"
+        - if @report.bibliographies.empty?
+          .list-group-item
+            まだ参考文献がありません
+        = div_for @bibliographies, class: "list-group-item" do |t|
+          %h4.user
+            %span.user-name
+              = link_to t.name, t.url

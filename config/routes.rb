@@ -19,7 +19,10 @@ Rails.application.routes.draw do
 
   resources :reports do
     resource :accepts, only: [:create, :destroy]
+    get :bibliographies, on: :member
   end
+  
+  resources :bibliographies
   
   root to: 'registrations#new'
 

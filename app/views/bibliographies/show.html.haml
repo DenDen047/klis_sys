@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @bibliography.name
+%p
+  %b Url:
+  = @bibliography.url
+%p
+  %b Report:
+  = @bibliography.report_id
+
+= link_to 'Edit', edit_bibliography_path(@bibliography)
+\|
+= link_to 'Back', bibliographies_path

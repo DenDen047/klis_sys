@@ -1,0 +1,10 @@
+- if logged_in?
+  .panel.panel-default
+    .panel-body
+      - @bibliography.errors.full_messages.each do |message|
+        .alert.alert-danger= message
+      = form_for @bibliography do |f|
+        .form-group
+          = f.text :name, class: "form-control"
+          = f.text :url, class: "form-control"
+        = f.submit "追加", class: "btn btn-success"

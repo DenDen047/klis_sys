@@ -1,0 +1,19 @@
+= form_for @bibliography do |f|
+  - if @bibliography.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bibliography.errors.count, "error")} prohibited this bibliography from being saved:"
+      %ul
+        - @bibliography.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :report_id
+    = f.number_field :report_id
+  .actions
+    = f.submit 'Save'
