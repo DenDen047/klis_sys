@@ -17,8 +17,8 @@
       .box-body
         .panel.panel-default
           .panel-body
-            // - @report.bibliographies.errors.full_messages.each do |message|
-            //   .alert.alert-danger= message
+            - @report.bibliographies.errors.full_messages.each do |message|
+              .alert.alert-danger= message
             = form_for @report.bibliographies do |f|
               .form-group
                 = f.text :name, class: "form-control"
