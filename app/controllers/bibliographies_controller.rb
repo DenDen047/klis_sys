@@ -32,7 +32,7 @@ class BibliographiesController < ApplicationController
 
     respond_to do |format|
       if @bibliography.save
-        format.html { redirect_to bibliographies_url, notice: 'bibliography was successfully created.' }
+        format.html { redirect_to reports_url, notice: 'bibliography was successfully created.' }
         format.json { render :show, status: :created, location: @bibliography }
       else
         @bibliographies = Bibliography.all

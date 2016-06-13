@@ -8,7 +8,9 @@
     = div_for @reports, class: "list-group-item" do |r|
       %h4.report
         %span.report-name
-          = link_to r.name, report_path(r)
+          #{r.id}.
+          %b
+            = link_to r.name, report_path(r)
         %span.report-timelimit
           締切日 #{r.timelimit}
       .discription
