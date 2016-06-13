@@ -7,4 +7,5 @@
         .form-group
           = f.text :name, class: "form-control"
           = f.text :url, class: "form-control"
+          - f[:report_id] = report.id
         = f.submit "追加", class: "btn btn-success"

@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     get :bibliographies, on: :member
   end
   
-  resources :bibliographies
+  resources :bibliographies do
+    get :reports, on: :member
+  end
   
   root to: 'registrations#new'
 

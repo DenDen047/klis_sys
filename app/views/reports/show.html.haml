@@ -15,20 +15,10 @@
       %h2
         参考文献
       .box-body
-        .panel.panel-default
-          .panel-body
-            - @report.bibliographies.errors.full_messages.each do |message|
-              .alert.alert-danger= message
-            = form_for @report.bibliographies do |f|
-              .form-group
-                = f.text :name, class: "form-control"
-                = f.text :url, class: "form-control"
-              = f.submit "追加", class: "btn btn-success"
-        // = render partial: "bibliographies/panel"
+        = button_to 'New', new_bibliography_path(@report), method: :get, class: "btn-block btn-success"
         - if @report.bibliographies.empty?
-          .list-group-item
-            まだ参考文献がありません
-        = div_for @bibliographies, class: "list-group-item" do |t|
+          まだ参考文献がありません
+        = div_for @report.bibliographies, class: "list-group-item" do |t|
           %h4.user
             %span.user-name
-              = link_to t.name, t.url
+              = link_to t.name, t.url, :target=>["_blank"] 

@@ -28,7 +28,7 @@ class BibliographiesController < ApplicationController
   # POST /bibliographies.json
   def create
     @bibliography = Bibliography.new(bibliography_params)
-    @bibliography.report = Report.find(params[:report_id])
+    # @bibliography.report = Report.find(params[:report_id])
 
     respond_to do |format|
       if @bibliography.save
@@ -74,6 +74,6 @@ class BibliographiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bibliography_params
-      params.require(:bibliography).permit(:content)
+      params.require(:bibliography).permit(:name, :url, :report_id)
     end
 end
