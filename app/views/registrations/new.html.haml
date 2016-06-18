@@ -11,6 +11,7 @@
   .col-xs-6.right-content
     = form_for @user, url: registrations_path, method: :post do |f|
       %h2
+        %i.fa.fa-user.fa-2x
         会員登録する
       - @user.errors.each do |attr, message|
         .alert.alert-danger= message

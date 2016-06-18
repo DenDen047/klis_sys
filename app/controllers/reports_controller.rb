@@ -5,8 +5,9 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
     @report = Report.new
+    @reports = Report.all
+    @bgcolor = '#ff0000'
   end
 
   # GET /reports/1
