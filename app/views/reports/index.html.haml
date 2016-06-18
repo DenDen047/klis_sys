@@ -10,14 +10,15 @@
         %span.report-name
           #{r.id}.
           %b
-            // - if (r.timelimit - Date.today).to_i < 0
-            //   %i.fa.fa-times
-            // - elif (r.timelimit - Date.today).to_i < 2
-            //   %i.fa.fa-exclamation-triangle
             = link_to r.name, report_path(r)
+            - if (r.timelimit - Date.today).to_i < 0
+              %i.fa.fa-ban
+            - elsif (r.timelimit - Date.today).to_i < 2
+              %i.fa.fa-exclamation-triangle
+            - elsif (r.timelimit - Date.today).to_i < 7
+              %i.fa.fa-pencil-square-o
         %span.report-timelimit
           締切日 #{r.timelimit}
-          締切日 #{Date.today}
       .discription
         = r.description
       .content-footer
